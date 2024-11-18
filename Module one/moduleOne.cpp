@@ -1,7 +1,19 @@
-#include<iostream>
+#include <iostream>
+
 using namespace std;
 
+ 
+
 int main() {
-    cout << "Hello from moduleOne.cpp" << endl;
-    return 0;
+
+ int a, b;
+
+ while (cin >> a >> b) {
+
+ cout << a << " " << b << endl;
+
+ }
+
+ return 0;
+
 }
