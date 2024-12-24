@@ -28,5 +28,12 @@ for(auto x:l5){
     };
     
     // stl capacity function
+//     myList.size()
+// myList.max_size()
+// myList.clear()
+// myList.empty()
+// myList.resize()
+
+
     return 0;
 }
