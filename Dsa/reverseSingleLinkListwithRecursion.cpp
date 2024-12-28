@@ -30,6 +30,26 @@ void insert_at_tail(Node*&head ,Node * &tail,int value){
     tail=newNode;
 
 };
+void print_link_list(Node * head){
+         Node *current =head;
+         while(current!=NULL){
+            cout<<current->val<<endl;
+            current=current->next;
+         }
+}
+// Function to use recursively reverse
+
+void reverse_linked_list(Node *&head,Node *& tail , Node *temp){
+
+    if(temp->next==NULL){
+        head =temp;
+        return;
+    }
+    reverse_linked_list(head,tail,temp->next);
+    temp->next->next =temp;
+    temp->next =NULL;
+    tail =temp;
+};
 int main() 
 //  i will create a single linked list and reverse it using recursion
          
@@ -44,7 +64,11 @@ int main()
             break;
         }
         insert_at_tail(head,tail,x);
+    
         
     }
+        print_link_list(head);
+        reverse_linked_list(head,tail,head);
+        print_link_list(head);
     return 0;
 }
