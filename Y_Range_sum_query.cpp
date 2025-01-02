@@ -3,46 +3,37 @@ using namespace std;
 int main() 
 {
     int N ,Q;
-    cin >> N >> Q ;
+    cin>> N;
+    cin >> Q;
 
-    vector <long long int> A(N+1);
-    for(int i =1 ; i<=N; i++)
-    {
-        cin>> A[i];
+    vector<long long int> A(N+1);
+    // Take input for the Array
+    for(int i=1; i<A.size(); i++){
+        cin>>A[i];
+        
     };
-    // while(Q--)
-    // {
-    //     int l,r;
-    //     cin>> l >> r;
-    //     int sum =0;
-    //     for( int i =l; i<=r; i++ )
-    //     {
-    //         sum += A[i];
-    //     }
-    //     cout << sum<<endl;
-    // }
 
-    // Prefix Sum
-    vector< long long int> v(N+1);
-    v[1]=A[1];
-    for (int j =2 ; j<=v.size(); j++)
-    {
-       
-        v[j] =v[j-1] + A[j];
-    };
+    // Create Prefix sum for them
+    vector<long long int> Prefix(A);
+
+   
+
+   Prefix[1]= A[1];
+   for(int i=2; i<A.size(); i++){
+        Prefix[i]=Prefix[i-1]+A[i];
+   };
+     while(Q--){
+          int l;
+          int r;
+          cin>>l;
+          cin>>r;
+          if(l==1){
+            cout<<Prefix[r]<<endl;
+          }else{
+            cout<<Prefix[r]-Prefix[l-1]<<endl;
+          }
+     };
+    // Take all the query and the input;
     
-    while(Q--)
-    {
-        int l ,r;
-        long long int sum =0;
-        cin>>l >>r;
-        if(l==1){
-           sum = v[r];
-        }else{
-            sum = v[r]- v[l-1];
-        }
-        cout << sum << endl;
-    }
-
     return 0;
 }
