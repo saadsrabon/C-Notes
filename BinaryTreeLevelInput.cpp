@@ -65,12 +65,30 @@ Node * input_tree()
         }
     };
     return root;
-}
+};
+
+ void print_level_order(Node *root){
+      queue<Node*>myDataQueue;
+      myDataQueue.push(root);
+
+      while(!myDataQueue.empty()){
+         Node *temp = myDataQueue.front();
+         myDataQueue.pop();
+         cout<< temp->val <<" ";
+         if(temp->left){
+            myDataQueue.push(temp->left);
+         }
+         if(temp->right){
+            myDataQueue.push(temp->right);
+         }
+      }
+   }
+ 
 int main()
 {
     Node * root =input_tree();
 
+    print_level_order(root);
 
-    
     return 0;
 }
