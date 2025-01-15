@@ -84,11 +84,23 @@ Node * input_tree()
       }
    }
  
+
+ int print_size (Node *root){
+
+    if(root ==NULL) {
+        return 0;
+    }else{
+      int  l = print_size(root->left);
+      int   r= print_size(root->right);
+      return l+r+1;
+    }
+ }
 int main()
 {
     Node * root =input_tree();
 
     print_level_order(root);
+    cout<<print_size(root);
 
     return 0;
 }
