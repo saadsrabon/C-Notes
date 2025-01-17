@@ -67,6 +67,21 @@ void collect_leaf_nodes(Node* root, vector<int>& leafNodes) {
     collect_leaf_nodes(root->right, leafNodes);
 }
 
+int getSize(Node* root) {
+    if (root == nullptr)
+        return 0;
+    
+    // Find the size of left and right 
+    // subtree.
+   
+
+    int left = getSize(root->left);
+    int right = getSize(root->right);
+    
+    // return the size of curr subtree.
+    return left+right+1;
+}
+
 int main() {
     Node* root = input_tree();
 
@@ -84,6 +99,6 @@ int main() {
         cout << val << " ";
     }
     cout << endl;
-
+    cout<<getSize(root);
     return 0;
 }
