@@ -32,7 +32,7 @@ using namespace std;
          }
       }
    }
- 
+ void func(){}
 int main() 
 {
    Bnode * root =new Bnode(1);
